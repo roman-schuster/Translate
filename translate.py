@@ -1,6 +1,15 @@
 from papirus import Papirus
 from papirus import PapirusText
 
+import os
+import sys
+
+# Making sure the script is run as root
+user = os.getuid()
+if user != 0:
+    print "Please run script as root"
+    sys.exit()
+    
 # The epaper screen object
 screen = Papirus()
 screen.set_size(papirus.2_0INCH)
